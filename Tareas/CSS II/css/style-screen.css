@@ -1,0 +1,26 @@
+img[alt^="cat"]{
+	border: 2px dashed black;
+}
+
+div.card > p::first-letter {
+	font: bold;
+	font-size: 28px;
+}
+
+img:hover{
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.card{
+	width: 40%;
+	background: seashell;
+	border: 2px solid black;
+	padding: 10px;
+	margin: 20px;
+	display: inline-block;
+}
+
+div.card p+p{
+	display: none;
+}

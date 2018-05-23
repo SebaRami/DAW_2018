@@ -1,0 +1,28 @@
+img{
+	display: none;
+}
+
+div.card > p::first-letter {
+	font: bold;
+	font-size: 28px;
+}
+
+img:hover{
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.card{
+	width: 25%;
+	padding: 10px;
+	margin: 20px;
+	display: inline-block;
+}
+
+footer{
+	display: none;
+}
+
+section#central{
+	text-align: center;
+}
