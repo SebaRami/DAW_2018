@@ -1,0 +1,14 @@
+<html>
+    <div>
+    	{% for usuario in usuarios %}
+    	<div>
+    		<p>{{usuario.nombre}}</p>
+        	{% for servicio in servicios %}
+        		{% if usuario.id == servicio.usuario.id %}
+					<p>-  {{servicio.nombre_servicio}}</p>
+				{% endif %}
+    		{% endfor %}
+    	</div>
+    	{% endfor %}
+    </div>
+</html>
