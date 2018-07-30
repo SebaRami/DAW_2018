@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOLA 1</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+	<div>
+		<img src="{% static 'img/default.jpg' %}">
+	</div>
+	<div class="container">
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Servicio
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				{% for servicio in servicios %}
+				<li><a href="#">{{servicio}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+    <div class="container">
+		<div class="row">
+			<div class="col-md-4">Nombre Completo</div>
+			<div class="col-md-2">Servicio</div>
+			<div class="col-md-1">Ciudad</div>
+			<div class="col-md-3">Fecha</div>
+			<div class="col-md-2">Total Factura</div>
+		</div>
+    	{% for factura in facturas %}
+    	<div>
+			<div class="col-md-4">{{factura.nombre}}</div>
+			<div class="col-md-2">{{factura.servicio}}</div>
+			<div class="col-md-1">{{factura.ciudad}}</div>
+			<div class="col-md-3">{{factura.fecha}}</div>
+			<div class="col-md-2">{{factura.total_factura}}</div>
+    	</div>
+    	{% endfor %}
+    </div>
+</body>
+</html>
