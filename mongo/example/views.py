@@ -6,6 +6,7 @@ from example.models import Example
 
 def index(request):
     facturas = Example.objects.all()
+    print(facturas)
     servicios = []
     fechas = []
     for factura in facturas:
@@ -14,5 +15,9 @@ def index(request):
         if factura.getFecha() not in fechas:
             fechas.append(factura.getFecha())
 
-
+    print(servicios)
     return render(request, 'example/index.html', {'facturas':facturas, 'servicios':servicios, 'fechas':fechas})
+
+def filtrar(request):
+	facturas = Example.objects.filter(servicio=request.GET['servicio'])
+	return render(request, 'example/filtrar.html', {'facturas':facturas})

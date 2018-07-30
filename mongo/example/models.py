@@ -1,4 +1,5 @@
 from djongo import models
+import csv
 
 class Example(models.Model):
 
@@ -7,6 +8,7 @@ class Example(models.Model):
     ciudad = models.CharField(max_length=255, blank=False)
     total_factura = models.FloatField()
     fecha = models.DateTimeField()
+
     def getServicio(self):
         return self.servicio
 

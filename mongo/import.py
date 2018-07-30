@@ -2,9 +2,9 @@ from djongo import models
 from example.models import Example
 import csv
 
-with open('base.csv', 'r', encoding="utf8") as csv_file:
+with open('todosmisservicios.csv', 'r', encoding="utf8") as csv_file:
     csv_reader = csv.reader(csv_file)
-    for line in csv_reader:
+    for line in csv_reader[:500]:
         line = line[0].split(";")
         factura = Example()
         factura.nombre = line[0]

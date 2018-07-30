@@ -14,16 +14,17 @@
 		<img src="{% static 'img/default.jpg' %}">
 	</div>
 	<div class="container">
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Servicio
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				{% for servicio in servicios %}
-				<li><a href="#">{{servicio}}</a></li>
-				{% endfor %}
-			</ul>
-		</div>
+		<select>
+			{% for servicio in servicios %}
+			<option value="{{servicio}}">{{servicio}}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div>
+		<form action="/example/filtrar" method="get">
+			SERVICIO: <input type="text" name="servicio"/>
+			<input type="submit" />
+		</form>
 	</div>
     <div class="container">
 		<div class="row">
