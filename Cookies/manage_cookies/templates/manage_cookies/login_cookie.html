@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        {% block title %}
+        {% endblock %}
+        {% load staticfiles %}
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        {% block estilo %}
+        {% endblock %}
+    </head>
+{% block content %}
+	<body>
+
+		<div class="container">
+            <h1> Esta es la pagina de login cookie</h1>
+            <form role="form" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="user">User</label>
+                    <input type="text" class="form-control" id="user" name="user">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" name="pwd">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            
+
+
+              
+		  </div>	
+
+	</body>
+{% endblock content%}
+</html>

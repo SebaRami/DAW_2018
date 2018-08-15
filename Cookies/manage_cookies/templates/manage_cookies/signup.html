@@ -1,0 +1,62 @@
+
+{% block title %}
+    <title>Registro</title>
+{% endblock %}
+
+{% block estilo %}
+<!--insertar estilo -->
+{% endblock %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form id="signup_form"method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>       
+        {{ field }}
+        {% if field.help_text %}         
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button class="btn btn-default"type="submit">Sign up</button>
+  </form>
+
+<!-- I set the css classes to form elements after page load -->
+<script>
+    $(document).ready(function() {
+				//The id's used are those rendered by form.elements. Check: view source after load
+        $('#signup_form').find("#id_password1").each(function(index, element) {
+            $(element).addClass("form-control");
+						$(element).attr("placeholder","Contraseña");
+        });
+				
+				$('#signup_form').find("#id_password2").each(function(index, element) {
+            $(element).addClass("form-control");
+						$(element).attr("placeholder","Repita Contraseña");
+        });
+				
+				$('#signup_form').find("#id_username").each(function(index, element) {
+            $(element).addClass("form-control");
+						$(element).attr("placeholder","Nombre de usuario ");
+        });
+				$('#signup_form').find("#id_first_name").each(function(index, element) {
+            $(element).addClass("form-control");
+						$(element).attr("placeholder","Nombre (Opcional)");
+        });
+				$('#signup_form').find("#id_last_name").each(function(index, element) {
+            $(element).addClass("form-control");
+						$(element).attr("placeholder","Apellido (Opcional)");
+        });
+				$('#signup_form').find("#id_email").each(function(index, element) {
+            $(element).addClass("form-control");
+						$(element).attr("placeholder","Correo electronico");
+        });
+    });
+</script>
+
+{% endblock content %}
+
+

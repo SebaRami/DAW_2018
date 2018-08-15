@@ -1,0 +1,52 @@
+{% block title %}
+    <title>Ingreso</title>
+{% endblock %}
+
+{% block estilo %}
+<!--insertar estilo -->
+{% endblock %}
+
+{% block content %}
+	<div class="container" >		
+
+		<h2>Iniciar Sesion</h2>
+<!-- no action="" is required, since we are using default implementation. You just have to make sure that registration/login.html 	is configured properly-->
+		<form id="login_form" method="post">	
+			{% csrf_token %}	  
+		  <div class="form-group">
+			<!-- remind change by email-->
+			{{form.username}}
+		  </div>
+
+		  <div class="form-group">
+			{{form.password}}
+		  </div>				  
+		 		 
+		  <button type="submit" class="btn btn-default">Iniciar sesion</button>	
+			<p><a href="{% url 'password_reset' %}">¿Olvido su contraseña?.</a></p>	 
+			<p><a href="{% url 'signup' %}">¿No posee una cuenta? Registrese.</a></p>	
+		</form>	
+		
+	{% if form.errors %}
+	<p>El nombre de usuario y la contraseña no son correctos. Intente de nuevo.</p>
+	{% endif %}
+
+	</div>
+<!-- I set the css classes to form elements after page load -->
+<script>
+    $(document).ready(function() {
+		//The id's used are those rendered by form.elements. Check: view source after load
+        $('#login_form').find("#id_password").each(function(index, element) {
+            $(element).addClass("form-control");
+			$(element).attr("placeholder","contraseña");
+        });
+			$('#login_form').find("#id_username").each(function(index, element) {
+            $(element).addClass("form-control");
+			$(element).attr("placeholder","nombre de usuario");
+        });
+    });
+</script>
+
+{% endblock content %}
+
+
